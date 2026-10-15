@@ -1,0 +1,49 @@
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter Tight", sans-serif;
+  background: #fafaf7;
+  color: #111111;
+}
+
+main {
+  width: 50%;
+  margin: 25vh auto 15rem;
+}
+
+#verse-info {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  gap: 2rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+#verse-book {
+  font-size: 4rem;
+  font-weight: 400;
+}
+
+#verse-number {
+  font-size: 20rem;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 600;
+  color: #d81500;
+  line-height: 1;
+  text-box: trim-both cap alphabetic;
+}
+
+#verse-text {
+  margin-top: 15rem;
+  font-size: 3rem;
+  line-height: 1.5;
+}
