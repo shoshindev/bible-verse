@@ -22,7 +22,7 @@ main {
 #verse-info {
   width: 100%;
   display: flex;
-  justify-content: left;
+  justify-content: flex-start;
   gap: 2rem;
   align-items: baseline;
   flex-wrap: wrap;
@@ -34,7 +34,7 @@ main {
 }
 
 #verse-number {
-  font-size: 20rem;
+  font-size: 10rem;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-weight: 600;
   color: #d81500;
