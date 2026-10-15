@@ -13,3 +13,11 @@ async function loadVerse() {
 }
 
 loadVerse();
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== " " && event.key !== "Enter") return;
+  if (event.repeat) return;
+
+  event.preventDefault();
+  loadVerse();
+});
