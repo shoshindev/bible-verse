@@ -29,7 +29,7 @@ function showVerse(verse) {
 async function prefetch() {
   try {
     nextVerse = await fetchVerse();
-  } catch {
+  } catch (error) {
     console.warn("Could not prefetch next verse:", error);
   }
 }
