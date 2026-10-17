@@ -6,6 +6,9 @@ const text = document.getElementById("verse-text");
 const hint = document.getElementById("hint");
 const hintDismissBtn = document.getElementById("hint-dismiss-btn");
 
+let isLoading = false;
+let nextVerse = null;
+
 async function fetchVerse() {
   const response = await fetch(API_URL);
 
@@ -23,15 +26,23 @@ function showVerse(verse) {
   text.textContent = verse.text.trim();
 }
 
-let isLoading = false;
+async function prefetch() {
+  try {
+    nextVerse = await fetchVerse();
+  } catch {
+    console.warn("Could not prefetch next verse:", error);
+  }
+}
 
 async function loadVerse() {
   if (isLoading) return;
   isLoading = true;
 
   try {
-    const verse = await fetchVerse();
+    const verse = nextVerse ?? (await fetchVerse());
+    nextVerse = null;
     showVerse(verse);
+    prefetch();
   } catch (error) {
     console.error("Could not load verse:", error);
   } finally {
