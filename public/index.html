@@ -15,7 +15,7 @@
   </head>
   <body>
     <header>
-      <button type="button" id="settings-btn">
+      <button type="button" id="settings-btn" aria-label="Settings">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -36,12 +36,71 @@
       </button>
     </header>
 
-    <dialog id="settings">
-      <form method="dialog">
+    <dialog id="settings" aria-labelledby="settings-title">
+      <div id="settings-header">
         <h2 id="settings-title">Settings</h2>
-        <p>Settings will go here.</p>
-        <button>Close</button>
-      </form>
+        <button
+          type="button"
+          id="settings-close-btn"
+          aria-label="Close settings"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-x"
+          >
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <fieldset>
+        <legend>Theme</legend>
+        <div id="theme-options">
+          <input
+            type="radio"
+            id="theme-light"
+            name="theme"
+            value="light"
+            checked
+          />
+          <label for="theme-light">Light</label>
+          <input type="radio" id="theme-dark" name="theme" value="dark" />
+          <label for="theme-dark">Dark</label>
+        </div>
+      </fieldset>
+
+      <label for="translation">Translation</label>
+      <div id="translation-select">
+        <select id="translation" name="translation">
+          <option value="kjv" selected>King James Version</option>
+          <option value="esv">English Standard Version</option>
+          <option value="niv">New International Version</option>
+        </select>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-chevron-down"
+          aria-hidden="true"
+        >
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </div>
     </dialog>
 
     <main>
@@ -57,7 +116,7 @@
       <p>
         Press <span>Space</span> / <span>Enter</span> to display next verse.
       </p>
-      <button id="hint-dismiss-btn" type="button">
+      <button id="hint-dismiss-btn" type="button" aria-label="Dismiss hint">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"

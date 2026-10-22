@@ -3,6 +3,12 @@
   --bg: #fafaf7;
   --text: #111111;
   --accent: #d81500;
+  --surface: #ffffff;
+  --muted: #6b6963;
+  --border: #e3e0d9;
+  --control: #f1efea;
+  --control-active: #ffffff;
+  --shadow: rgb(17 17 17 / 0.08);
 }
 
 html {
@@ -35,6 +41,7 @@ header {
 #settings-btn {
   all: unset;
   cursor: pointer;
+  anchor-name: --settings-btn;
 }
 
 #settings-btn svg {
@@ -52,6 +59,164 @@ header {
 main {
   width: 50%;
   margin: 25vh auto 15rem;
+}
+
+#settings {
+  position-anchor: --settings-btn;
+  inset: auto;
+  top: anchor(bottom);
+  right: anchor(right);
+  margin-top: 2rem;
+  width: min(32rem, 100vw - 4rem);
+  padding: 2.4rem;
+  border: 1px solid var(--border);
+  border-radius: 1.2rem;
+  background-color: var(--surface);
+  color: var(--text);
+  box-shadow: 0 1.2rem 3.2rem var(--shadow);
+}
+
+#settings::backdrop {
+  background: transparent;
+}
+
+#settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.4rem;
+}
+
+#settings-title {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+#settings-close-btn {
+  all: unset;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  width: 4.4rem;
+  height: 4.4rem;
+  margin: -1rem -1.6rem -1rem 0;
+  border-radius: 50%;
+  color: var(--muted);
+}
+
+#settings-close-btn:hover {
+  color: var(--text);
+}
+
+#settings-close-btn:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: -0.6rem;
+}
+
+#settings-close-btn svg {
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
+  stroke-width: 1.6;
+}
+
+#settings fieldset {
+  border: none;
+  min-width: 0;
+}
+
+#settings legend,
+#settings label[for="translation"] {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+#theme-options {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+  padding: 0.4rem;
+  border-radius: 1rem;
+  background: var(--control);
+}
+
+#theme-options input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#theme-options label {
+  padding: 1rem;
+  border-radius: 0.6rem;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  text-align: center;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+#theme-options label:hover {
+  color: var(--text);
+}
+
+#theme-options input:checked + label {
+  background: var(--control-active);
+  color: var(--text);
+  box-shadow: 0 1px 3px var(--shadow);
+}
+
+#theme-options input:focus-visible + label {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+
+#settings label[for="translation"] {
+  margin-top: 2.4rem;
+}
+
+#translation-select {
+  position: relative;
+  margin-top: 0.8rem;
+}
+
+#translation {
+  appearance: none;
+  display: block;
+  width: 100%;
+  padding: 1.3rem 3.6rem 1.3rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  cursor: pointer;
+}
+
+#translation:hover {
+  border-color: var(--muted);
+}
+
+#translation:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+
+#translation-select svg {
+  position: absolute;
+  top: 50%;
+  right: 1.2rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  translate: 0 -50%;
+  color: var(--muted);
+  pointer-events: none;
 }
 
 #verse-info {
@@ -124,5 +289,11 @@ main {
     --bg: #121110;
     --text: #ece9e2;
     --accent: #ff5a3c;
+    --surface: #1c1b19;
+    --muted: #a19d95;
+    --border: #34322e;
+    --control: #262421;
+    --control-active: #3a3733;
+    --shadow: rgb(0 0 0 / 0.4);
   }
 }

@@ -5,6 +5,8 @@ const number = document.getElementById("verse-number");
 const text = document.getElementById("verse-text");
 const hint = document.getElementById("hint");
 const hintDismissBtn = document.getElementById("hint-dismiss-btn");
+const settingsBtn = document.getElementById("settings-btn");
+const settings = document.getElementById("settings");
 
 const listResponse = await fetch("verses.json");
 const verseList = await listResponse.json();
@@ -83,6 +85,10 @@ async function loadVerse() {
 }
 
 loadVerse();
+
+settingsBtn.addEventListener("click", () => {
+  settings.showModal();
+});
 
 document.addEventListener("keydown", (event) => {
   if (event.key !== " " && event.key !== "Enter") return;
